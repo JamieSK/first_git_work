@@ -27,3 +27,7 @@ Where to put a pattern depends on its use:
 Some lower level git commands read patterns from command
 line options or file specified there. Higher level commands
 use the sources above.
+
+Mostly paraphrased from https://git-scm.com/docs/gitignore
+more actual rules for writing patterns and examples can
+be found there too.
