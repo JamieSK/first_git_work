@@ -1,0 +1,29 @@
+gitignore files specify files that git shouldn't track.
+
+It doesn't un-track files that are already tracked by git,
+if the gitignore is added after files are already tracked,
+they can be removed with "git rm --cached FILENAME"
+
+The gitignore specifies a pattern, Git checks more than one
+place for patterns to ignore with precedence (high-low):
+- From the command line with some commands;
+- .gitignore files in the same directory as the path
+  or a parent directory with lower level files overriding
+  higher level ones, patterns in this file are parsed
+  relative to the file's location. This is the norm for
+  a git project;
+- Patterns from $GIT_DIR/info/exclude;
+- Patterns from config variable core.excludesFile.
+
+Where to put a pattern depends on its use:
+- For version control and distribution to other repos
+  go into a .gitignore;
+- Patterns specific to a repo but also to a user should 
+  go into the $GIT_DIR/info/exclude file;
+- Patterns to be ignored by Git in all situations should
+  go into a file specified by core.excludesFile in the
+  user's ~/.gitconfig.
+
+Some lower level git commands read patterns from command
+line options or file specified there. Higher level commands
+use the sources above.
